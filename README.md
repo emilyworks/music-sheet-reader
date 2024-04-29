@@ -7,9 +7,9 @@ The motivation behind this project is to address challenges faced by musicians a
 
 **Final Report**
 
-##Repo Overview
+## Repo Overview
 
-###BLIP Fine-tuning/Training
+### BLIP Fine-tuning/Training
 
 We finetuned BLIP, a generative image-to-text model from SalesForce, to output bekrn-notated text given images of musical scores as input. The model was evaluated on its WER score. 
 
