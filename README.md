@@ -25,3 +25,54 @@ As our second approach to OMR, we built a custom model that employs, under-the-h
 ### Visual/Audio Generation
 
 Model outputs will need to transformed into a video that both plays and visualizes the appropriate notes in the proper sequence. The code for doing so can be found in the folder ```piano_vis```.
+A sample output and script can be found in `piano_vis/sample`
+
+```python
+import piano_vis.keyboard
+```
+#### Dependencies
+ffmpeg-python – Information on this package can be found at https://github.com/kkroening/ffmpeg-python  
+pyfluidsynth – Information on this package can be found at https://github.com/nwhitehead/pyfluidsynth  
+pillow  
+numpy
+
+#### Basic Usage
+
+##### Creating a Keyboard
+```python
+keyboard = Keyboard(synth)
+```
+`synth` should be an active fluidsynth object. To work with the mp4 export, this should use `fs.start(driver="file")`  
+Note: All testing was done using the GeneralUser soundfont from https://schristiancollins.com/generaluser.php, but any other soundfont should work.
+
+##### Creating a note
+To start playing notes, we must first create note objects. The note object is created through the constructer
+```python
+note = Note(midinum, start_time, duration)
+```
+`midinum` represents the pitch of the note and corresponds to the midi number found here: https://en.wikipedia.org/wiki/Piano_key_frequencies.  
+`start_time` represents when note key is pressed down. Start time begins at 0 and each increment corresponds to 1 second. Floats and integers are accepted.  
+`duration` represents how long a key is pressed for. Each increment corresponds to 1 second of holding down the note. Floats and integers are accepted.  
+
+##### Playing a note
+Once you have a keyboard and note, you can begin playing notes. To play a note, use `keyboard.add_note(note)` function.  
+
+Example:
+```python
+keyboard.add_note(Note(52, 0, 1))
+```
+
+##### Generating an output
+
+Once notes have been added, we can generate a video output. Use the `keyboard.generate_mp4(frame_duration, outfile)` function.  
+
+`frame_duration` corresponds to `1/frames_per_second` in the output video. This frame rate also affects the frequency of checks in the audio generation, so this should be at least 1 frame per note/second. For example, if using eigth notes, you should have at least frames per second (`frame_duration = 0.5`).  
+`outfile` corresponds to the path in which to write the output file. 
+
+Example usage:
+```python
+keyboard.generate_mp4(0.125, "movie.mp4")
+```
+
+###### Parsing Bekrn Output
+Unfortunately due to time constraints and the unexpected difficulty of interpreting the bekrn format, we were never able to write this script. This would be an essential tool for combining the visualizer with model outputs. For now, model output would need to be manually translated to the keyboard/note notation.
