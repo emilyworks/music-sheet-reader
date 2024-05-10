@@ -3,6 +3,8 @@ from PIL import Image
 
 from key_x_values import BLACK_KEY_X_VALUES, KEY_X_VALUES
 
+"""Creates keys to use in keyboard object"""
+
 KEY_BOTTOM = 256
 Y_MIN = 4
 BLACK_KEY_BOTTOM = 140
@@ -10,6 +12,10 @@ KEY_THRESH = 200
 
 
 class Key:
+    """
+    Key class stores information and supports playing audio and highlighting keys
+    """
+
     def __init__(self, midinum, color, x_values):
         self.color = color
         self.midinum = midinum
@@ -46,6 +52,8 @@ def add_octave(midinum, idx1, idx2):
         midinum += 1
         return midinum, idx2
 
+    """Sadly this cant be a loop because it needs to 
+    alternate properly through black and white keys"""
     midinum, idx1 = add_white_key(midinum, idx1)
     midinum, idx2 = add_black_key(midinum, idx2)
     midinum, idx1 = add_white_key(midinum, idx1)
@@ -72,6 +80,7 @@ idx1, idx2 = add_octave(72, idx1, idx2)
 
 
 def highlight_key(idx, im):
+    """Highlight a key in a given image"""
     x0 = keys[idx].x_values[0]
     x1 = keys[idx].x_values[1]
     if keys[idx].color:
