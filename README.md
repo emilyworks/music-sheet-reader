@@ -5,7 +5,7 @@ The motivation behind this project is to address challenges faced by musicians a
 
 [**Presentation Slides**](https://docs.google.com/presentation/d/1fx8u-OTpy8S-db-NQWF3gvC4ufHszsWol67fGmVnLKA/edit#slide=id.g2cdcb7191f5_0_10)
 
-[**Final Report**](https://drive.google.com/file/d/10fFyCbt5QvKiL8BlPG4cbQYsMltUzOYl/view?usp=drive_link)
+[**Final Report**](https://drive.google.com/file/d/1w9hJSdY4xIqgYqVaoZkT2ClwYpKENwt6/view?usp=drive_link)
 
 ## Repo Overview
 
