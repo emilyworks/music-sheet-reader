@@ -17,3 +17,11 @@ The relevant files for this approach of the project is as follows:
 - ```finetuning_blip.ipynb``` contains the end-to-end code necessary for producing the finetuned BLIP. It includes data processing code and model run and eval code. Please note that the notebook output from the training loop cell does not show the full training run (i.e. we trained for more than 2% of the training dataset); for a fuller output, see below.
 - ```sample_test_run_prints.txt``` contains a fuller example of a running output from the training loop run. (There were multiple training runs primarily because colab sessions used for training timed out before training could completely finish. Model weights were reloaded from a checkpoint and training was resumed thereafter).
 - ```sample_test_run_prints.txt``` contains an example running log from one of the test loops (There were multiple test loops due to session time-outs and other misc. like hyperparameter changes for training)
+
+### Custom Model Architecture
+
+As our second approach to OMR, we built a custom model that employs, under-the-hood, a DenseNet image encoder, GRU blocks, and multi-headed attention. Details on the exact architecture, its construction, as well as model performance can be found in the ```custom_music_model.ipynb```
+
+### Visual/Audio Generation
+
+Model outputs will need to transformed into a video that both plays and visualizes the appropriate notes in the proper sequence. The code for doing so can be found in the folder ```piano_vis```.
