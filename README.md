@@ -50,9 +50,9 @@ To start playing notes, we must first create note objects. The note object is cr
 ```python
 note = Note(midinum, start_time, duration)
 ```
-Midinum represents the pitch of the note and corresponds to the midi number found here: https://en.wikipedia.org/wiki/Piano_key_frequencies.  
-start_time represents when note key is pressed down. Start time begins at 0 and each increment corresponds to 1 second. Floats and integers are accepted.  
-duration represents how long a key is pressed for. Each increment corresponds to 1 second of holding down the note. Floats and integers are accepted.  
+`midinum` represents the pitch of the note and corresponds to the midi number found here: https://en.wikipedia.org/wiki/Piano_key_frequencies.  
+`start_time` represents when note key is pressed down. Start time begins at 0 and each increment corresponds to 1 second. Floats and integers are accepted.  
+`duration` represents how long a key is pressed for. Each increment corresponds to 1 second of holding down the note. Floats and integers are accepted.  
 
 ##### Playing a note
 Once you have a keyboard and note, you can begin playing notes. To play a note, use `keyboard.add_note(note)` function.  
@@ -66,8 +66,8 @@ keyboard.add_note(Note(52, 0, 1))
 
 Once notes have been added, we can generate a video output. Use the `keyboard.generate_mp4(frame_duration, outfile)` function.  
 
-frame duration corresponds to `1/frames_per_second` in the output video. This frame rate also affects the frequency of checks in the audio generation, so this should be at least 1 frame per note/second. For example, if using eigth notes, you should have at least frames per second (`frame_duration = 0.5`).  
-Outfile corresponds to the path in which to write the output file. 
+`frame_duration` corresponds to `1/frames_per_second` in the output video. This frame rate also affects the frequency of checks in the audio generation, so this should be at least 1 frame per note/second. For example, if using eigth notes, you should have at least frames per second (`frame_duration = 0.5`).  
+`outfile` corresponds to the path in which to write the output file. 
 
 Example usage:
 ```python
