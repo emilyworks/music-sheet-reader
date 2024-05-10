@@ -73,3 +73,6 @@ Example usage:
 ```python
 keyboard.generate_mp4(0.125, "movie.mp4")
 ```
+
+###### Parsing Bekrn Output
+Unfortunately due to time constraints and the unexpected difficulty of interpreting the bekrn format, we were never able to write this script. This would be an essential tool for combining the visualizer with model outputs. For now, model output would need to be manually translated to the keyboard/note notation.
